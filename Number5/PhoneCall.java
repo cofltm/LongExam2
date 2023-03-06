@@ -1,26 +1,19 @@
-public class IncomingPhoneCall extends PhoneCall {
-    private static final double rate = 0.02;
+public abstract class PhoneCall {
+    String phoneNumber;
+    double price;
 
-    public IncomingPhoneCall(String phoneNumber) {
-        super(phoneNumber);
-        setPrice(rate);
+    public PhoneCall(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        this.price = 0.0;
     }
 
-    @Override
-    public String getPhoneNumber() {
-        return super.phoneNumber;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    @Override
-    public double getPrice() {
-        return super.price;
-    }
+    public abstract String getPhoneNumber();
 
-    @Override
-    public void displayInformation() {
-        System.out.println("Incoming Call Information:");
-        System.out.println("Phone number: " + getPhoneNumber());
-        System.out.println("Rate: " + rate);
-        System.out.println("Price: " + getPrice());
-    }
+    public abstract double getPrice();
+
+    public abstract void displayInformation();
 }
